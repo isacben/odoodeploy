@@ -1,0 +1,2 @@
+# odoodeploy
+Odoo Deployment Documentation
