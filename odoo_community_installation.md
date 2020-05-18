@@ -1,4 +1,4 @@
-# Install Odoo Community
+# Odoo Community Installation Guide
 
 ## Server Preparation
 
