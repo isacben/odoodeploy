@@ -1,2 +1,3 @@
-# odoodeploy
-Odoo Deployment Documentation
+# Odoo Deployment Documentation
+
+Documentation about Odoo Community deployment.
