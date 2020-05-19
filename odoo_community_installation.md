@@ -94,6 +94,18 @@ Go to the installation directory:
 
     $ cd /opt/odoo/current/odoo
 
+Create a swap file with root user:
+
+    $ sudo -s
+    # cd ~
+    # dd if=/dev/zero of=tmpswap bs=1024 count=1M
+    # chown root:root /home/ubuntu/tmpswap
+    # chmod 0600 /home/ubuntu/tmpswap
+    # mkswap tmpswap
+    # swapon tmpswap
+
+This is the source of this workaround: https://stackoverflow.com/questions/11289002/gcc-cc1-out-of-memory-allocating
+
 Install the dependencies in the requirements:
 
     $ pip3 install setuptools wheel
@@ -101,4 +113,4 @@ Install the dependencies in the requirements:
 
 Test the installation:
 
-    $ python3 odoo-bin --addons-path=addons
+    $ python3 odoo-bin -c /etc/odoo.conf
