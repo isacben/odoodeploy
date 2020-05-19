@@ -141,3 +141,8 @@ StandardOutput=journal+console
 [Install]
 WantedBy=multi-user.target
 ```
+Run the following commands to start Odoo with ubuntu user:
+
+    $ sudo systemctl daemon-reload
+    $ sudo systemctl enable --now odoo
+    $ sudo systemctl status odoo
