@@ -114,3 +114,30 @@ Install the dependencies in the requirements:
 Test the installation:
 
     $ python3 odoo-bin -c /etc/odoo.conf
+
+## Create a Systemd Unit File
+
+Create the following file:
+
+    $ sudo nano /etc/systemd/system/odoo.service
+
+Copy this content:
+
+```
+[Unit]
+Description=Odoo
+Requires=postgresql.service
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+SyslogIdentifier=odoo
+PermissionsStartOnly=true
+User=ubuntu
+Group=ubuntu
+ExecStart=/usr/bin/python3 /opt/odoo/current/odoo/odoo-bin -c /etc/odoo.conf
+StandardOutput=journal+console
+
+[Install]
+WantedBy=multi-user.target
+```
