@@ -34,6 +34,12 @@ If it is not installed, you can install it.
 
     $ sudo apt install git
 
+### Postgres
+
+Install postgres:
+
+    $ sudo apt install postgresql postgresql-client
+
 ## Install Odoo
 
 Still with ubuntu user, create the odoo-current directory:
