@@ -40,6 +40,21 @@ Install postgres:
 
     $ sudo apt install postgresql postgresql-client
 
+Create the postgres user, which has to be called the same as the user that runs odoo, in this case, the ubuntu user.
+
+    $ sudo -u postgres createuser -s $USER
+
+### Wkhtmltopdf
+
+Go back to the tmp directory:
+
+    $ cd /tmp
+
+Install Wkhtmltopdf:
+
+    $ wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.bionic_amd64.deb
+    $ sudo apt install ./wkhtmltox_0.12.5-1.bionic_amd64.deb
+
 ## Install Odoo
 
 Still with ubuntu user, create the odoo-current directory:
@@ -54,5 +69,36 @@ Clone the Community edition:
 
     $ git clone https://github.com/odoo/odoo.git
 
+Create a configuration file:
 
+    $ sudo nano /etc/odoo13.conf
 
+Configure like this:
+
+```
+[options]
+; This is the password that allows database operations:
+admin_passwd = my_admin_passwd
+db_host = False
+db_port = False
+db_user = ubuntu
+db_password = False
+addons_path = /opt/odoo/current/odoo/addons
+```
+
+Install the dependencies:
+
+    $ sudo apt install python3-dev libxml2-dev libxslt1-dev libldap2-dev libsasl2-dev
+
+Go to the installation directory:
+
+    $ cd /opt/odoo/current/odoo
+
+Install the dependencies in the requirements:
+
+    $ pip3 install setuptools wheel
+    $ pip3 install -r requirements.txt
+
+Test the installation:
+
+    $ python3 odoo-bin --addons-path=addons
