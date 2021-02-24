@@ -1,4 +1,4 @@
-# Odoo Community Installation Guide
+# Odoo AWS Installation Guide
 
 ## Server Preparation
 
